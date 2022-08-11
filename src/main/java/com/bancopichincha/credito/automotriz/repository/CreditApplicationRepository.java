@@ -10,4 +10,9 @@ import java.util.Optional;
 public interface CreditApplicationRepository extends JpaRepository<CreditApplicationEntity, Long> {
     @Query("select c from CreditApplicationEntity c where c.clientEntity.idClient = ?1")
     Optional<CreditApplicationEntity> findByClientEntity_IdClient(@NonNull Long idClient);
+
+    @Query("select c from CreditApplicationEntity c where c.carYardEntity.idCarYard = ?1")
+    Optional<CreditApplicationEntity> findByCarYardEntity_IdCarYard(@NonNull Long idCarYard);
+
+
 }

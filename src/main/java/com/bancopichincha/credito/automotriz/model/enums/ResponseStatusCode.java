@@ -11,6 +11,7 @@ public enum ResponseStatusCode {
     CLIENT_DOES_NOT_EXISTS("2", "Client not found"),
     CLIENT_HAS_ASSOCIATED_INFORMATION("3", "Client has associated information assignment or credit application"),
     CAR_YARD_DOES_NOT_EXISTS("4", "Car yard not found"),
+    CAR_YARD_HAS_ASSOCIATED_INFORMATION("5", "Car yard has associated information assignment, credit application or executive"),
     ;
 
     private final String code;

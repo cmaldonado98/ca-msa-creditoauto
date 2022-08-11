@@ -78,7 +78,7 @@ public class ClientServiceImpl implements ClientService {
     public CommonResponseDto deleteClient(Long clientId) {
         log.info(String.format("Deleting client with id: %s", clientId.toString()));
 
-        if (assignmentRepository.findByClient_IdClient(clientId).isEmpty() || creditApplicationRepository.findByClientEntity_IdClient(clientId).isEmpty()) {
+        if (assignmentRepository.findByClient_IdClient(clientId).isPresent() || creditApplicationRepository.findByClientEntity_IdClient(clientId).isPresent()) {
             throw new ApplicationException(ResponseStatusCode.CLIENT_HAS_ASSOCIATED_INFORMATION);
         }
 
