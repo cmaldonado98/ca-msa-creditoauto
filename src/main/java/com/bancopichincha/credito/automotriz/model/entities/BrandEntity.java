@@ -9,7 +9,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-
 import static lombok.AccessLevel.PRIVATE;
 
 @Getter
@@ -17,26 +16,18 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "car_yard")
+@Table(name = "brand")
 @FieldDefaults(level = PRIVATE)
-public class CarYardEntity {
+public class BrandEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="seq")
     @GenericGenerator(name = "seq", strategy="increment")
-    @Column(name = "id_car_yard", nullable = false)
-    Long idCarYard;
+    @Column(name = "id_brand", nullable = false)
+    Long idBrand;
 
     @Column(name = "name", nullable = false)
     String name;
 
-    @Column(name = "address", nullable = false)
-    String address;
-
-    @Column(name = "phone", nullable = false)
-    String phone;
-
-    @Column(name = "number_sales_point", nullable = false)
-    Long numberSalesPoint;
 
 }

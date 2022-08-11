@@ -9,7 +9,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-
 import static lombok.AccessLevel.PRIVATE;
 
 @Getter
@@ -17,18 +16,24 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "car_yard")
+@Table(name = "executive")
 @FieldDefaults(level = PRIVATE)
-public class CarYardEntity {
+public class ExecutiveEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="seq")
     @GenericGenerator(name = "seq", strategy="increment")
-    @Column(name = "id_car_yard", nullable = false)
-    Long idCarYard;
+    @Column(name = "id_executive", nullable = false)
+    Long idExecutive;
 
-    @Column(name = "name", nullable = false)
-    String name;
+    @Column(name = "identification", nullable = false)
+    String identification;
+
+    @Column(name = "names", nullable = false)
+    String names;
+
+    @Column(name = "surnames", nullable = false)
+    String surnames;
 
     @Column(name = "address", nullable = false)
     String address;
@@ -36,7 +41,14 @@ public class CarYardEntity {
     @Column(name = "phone", nullable = false)
     String phone;
 
-    @Column(name = "number_sales_point", nullable = false)
-    Long numberSalesPoint;
+    @Column(name = "cellphone", nullable = false)
+    String cellphone;
+
+    @Column(name = "age", nullable = false)
+    Long age;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_car_yard")
+    CarYardEntity carYardEntity;
 
 }

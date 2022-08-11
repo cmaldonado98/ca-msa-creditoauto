@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.INVALID_PARAMETERS;
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.UNDEFINED_ERROR;
 import static lombok.AccessLevel.PRIVATE;
@@ -37,7 +40,7 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
                 .header(HttpHeaders.CONTENT_TYPE, "application/json")
                 .body(CommonResponseDto.builder()
                         .code(UNDEFINED_ERROR.getCode())
-                        .message(String.format(UNDEFINED_ERROR.getMessage(), "ERROR VALOR DUPLICADO"))
+                        .message(String.format(UNDEFINED_ERROR.getMessage(), "ERROR"))
                         .build());
     }
 
@@ -57,11 +60,15 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         log.error(String.format("Unexpected error: %s",ex.getMessage()));
+        Map<String, String> errorMap = new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(error -> {
+            errorMap.put(error.getField(),error.getDefaultMessage());
+        });
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .header(HttpHeaders.CONTENT_TYPE, "application/json" )
                 .body(CommonResponseDto.builder()
                         .code(INVALID_PARAMETERS.getCode())
-                        .message(String.format(INVALID_PARAMETERS.getMessage(),ex.getMessage()))
+                        .message(String.format(INVALID_PARAMETERS.getMessage(), errorMap))
                         .build());
     }
 

@@ -30,7 +30,7 @@ public class AssignmentEntity {
     LocalDateTime dateAssignment;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_client", referencedColumnName = "id_client")
+    @JoinColumn(name = "id_client", referencedColumnName = "id_client", nullable = false)
     ClientEntity client;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)

@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ResponseStatusCode {
     OK("0", "success"),
-    INVALID_PARAMETERS("1","Some or all the parameter are null or empty"),
+    INVALID_PARAMETERS("1","Some or all the parameter are null or empty %s"),
     UNDEFINED_ERROR("500","Unexpected error: %s"),
     UNDEFINED_VALUE("-1","status not found"),
     CLIENT_NOT_FOUND("2", "Client not found"),

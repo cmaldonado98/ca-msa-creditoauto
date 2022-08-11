@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -16,9 +17,18 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 public class CarYardDto {
+
     Long idCarYard;
+
+    @NotNull(message = "Error name cannot be null")
     String name;
+
+    @NotNull(message = "Error address cannot be null")
     String address;
+
+    @NotNull(message = "Error phone cannot be null")
     String phone;
-        String numberSalesPoint;
+
+    @NotNull(message = "Error number sales point cannot be null")
+    Long numberSalesPoint;
 }
