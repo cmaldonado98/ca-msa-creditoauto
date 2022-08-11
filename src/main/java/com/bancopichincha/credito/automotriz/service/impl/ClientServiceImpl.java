@@ -84,7 +84,7 @@ public class ClientServiceImpl implements ClientService {
 
         ClientEntity clientEntity = clientRepository.findById(clientId)
                 .orElseThrow(() -> {
-                    log.error(String.format("Client to be deleted not found id: %s", clientId.toString()));
+                    log.error(String.format("Client to be deleted not found id: %s", clientId));
                     return new ApplicationException(ResponseStatusCode.CLIENT_DOES_NOT_EXISTS);
                 });
         clientRepository.delete(clientEntity);

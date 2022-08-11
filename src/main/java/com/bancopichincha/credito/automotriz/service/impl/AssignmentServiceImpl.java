@@ -97,7 +97,7 @@ public class AssignmentServiceImpl implements AssignmentService {
 
         AssignmentEntity assignmentEntity = assignmentRepository.findById(id)
                 .orElseThrow(() -> {
-                    log.error(String.format("Assignment not found by id: %s", id.toString()));
+                    log.error(String.format("Assignment not found by id: %s", id));
                     return new ApplicationException(ResponseStatusCode.ASSIGNMENT_DOES_NOT_EXISTS);
                 });
         assignmentRepository.delete(assignmentEntity);

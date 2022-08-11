@@ -93,7 +93,7 @@ public class CarServiceImpl implements CarService {
 
         CarEntity carEntity = carRepository.findById(id)
                 .orElseThrow(() -> {
-                    log.error(String.format("Car to be updated not found id: %s", id.toString()));
+                    log.error(String.format("Car to be updated not found id: %s", id));
                     return new ApplicationException(ResponseStatusCode.CAR_DOES_NOT_EXISTS);
                 });
 
