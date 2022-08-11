@@ -15,6 +15,7 @@ public enum ResponseStatusCode {
     BRAND_DOES_NOT_EXISTS("6", "Brand not found"),
     CAR_DOES_NOT_EXISTS("7", "Car not found"),
     CAR_HAS_ASSOCIATED_INFORMATION("8", "Car has associated information, credit application"),
+    ASSIGNMENT_DOES_NOT_EXISTS("9", "Assignment not found"),
     ;
 
     private final String code;

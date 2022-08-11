@@ -60,4 +60,47 @@ public class AssignmentServiceImpl implements AssignmentService {
                 .response(String.format("ID: %s", newAssignment.getIdAssignment()))
                 .build();
     }
+
+    @Override
+    public CommonResponseDto updateAssignment(AssignmentDto assignment){
+        log.info(String.format("Updating assignment with clientId: %s and carYardId: %s", assignment.getClientId().toString(), assignment.getCarYardId().toString()));
+        ClientEntity clientEntity = clientRepository.findById(assignment.getClientId())
+                .orElseThrow(() -> {
+                    log.error(String.format("Client not found by id: %s", assignment.getClientId().toString()));
+                    return new ApplicationException(ResponseStatusCode.CLIENT_DOES_NOT_EXISTS);
+                });
+
+        CarYardEntity carYardEntity = carYardRepository.findById(assignment.getCarYardId())
+                .orElseThrow(() -> {
+                    log.error(String.format("Client not found by id: %s", assignment.getCarYardId().toString()));
+                    return new ApplicationException(ResponseStatusCode.CAR_YARD_DOES_NOT_EXISTS);
+                });
+
+        AssignmentEntity assignmentEntity = assignmentRepository.findById(assignment.getIdAssignment())
+                .orElseThrow(() -> {
+                    log.error(String.format("Assignment not found by id: %s", assignment.getIdAssignment().toString()));
+                    return new ApplicationException(ResponseStatusCode.ASSIGNMENT_DOES_NOT_EXISTS);
+                });
+
+        assignmentEntity.setDateAssignment(LocalDateTime.now());
+        assignmentEntity.setClient(clientEntity);
+        assignmentEntity.setCarYardEntity(carYardEntity);
+
+        assignmentRepository.save(assignmentEntity);
+
+        return CommonResponseDto.build(OK);
+    }
+
+    @Override
+    public CommonResponseDto deleteAssignment(Long id) {
+        log.info(String.format("Deleting assignment with id: %s", id.toString()));
+
+        AssignmentEntity assignmentEntity = assignmentRepository.findById(id)
+                .orElseThrow(() -> {
+                    log.error(String.format("Assignment not found by id: %s", id.toString()));
+                    return new ApplicationException(ResponseStatusCode.ASSIGNMENT_DOES_NOT_EXISTS);
+                });
+        assignmentRepository.delete(assignmentEntity);
+        return CommonResponseDto.build(OK);
+    }
 }
