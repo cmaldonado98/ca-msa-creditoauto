@@ -1,10 +1,14 @@
 package com.bancopichincha.credito.automotriz.service.impl;
 
 import ch.qos.logback.core.net.server.Client;
+import com.bancopichincha.credito.automotriz.exception.ApplicationException;
 import com.bancopichincha.credito.automotriz.model.dto.CommonResponseDto;
 import com.bancopichincha.credito.automotriz.model.dto.client.ClientDto;
 import com.bancopichincha.credito.automotriz.model.entities.ClientEntity;
+import com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode;
+import com.bancopichincha.credito.automotriz.repository.AssignmentRepository;
 import com.bancopichincha.credito.automotriz.repository.ClientRepository;
+import com.bancopichincha.credito.automotriz.repository.CreditApplicationRepository;
 import com.bancopichincha.credito.automotriz.service.ClientService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -19,6 +23,8 @@ import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCo
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
+    private final AssignmentRepository assignmentRepository;
+    private final CreditApplicationRepository creditApplicationRepository;
 
     @Override
     @Transactional
@@ -43,5 +49,45 @@ public class ClientServiceImpl implements ClientService {
                 .message(OK.getMessage())
                 .response(String.format("ID: %s Name: %s", newClient.getIdClient(), newClient.getNames()))
                 .build();
+    }
+
+    @Override
+    public CommonResponseDto updateClient(ClientDto client) {
+        log.info(String.format("Updating client with id: %s", client.getClientId().toString()));
+        ClientEntity clientEntity = clientRepository.findById(client.getClientId())
+                .orElseThrow(() -> {
+                    log.error(String.format("Client to be updated not found id: %s", client.getClientId().toString()));
+                    return new ApplicationException(ResponseStatusCode.CLIENT_DOES_NOT_EXISTS);
+                });
+
+        clientEntity.setIdentification(client.getIdentification());
+        clientEntity.setNames(client.getNames());
+        clientEntity.setSurnames(client.getSurnames());
+        clientEntity.setAge(client.getAge());
+        clientEntity.setDateOfBirth(client.getDateOfBirth());
+        clientEntity.setAddress(client.getAddress());
+        clientEntity.setMaritalStatus(client.getMaritalStatus());
+        clientEntity.setSpouseIdentification(client.getSpouseIdentification());
+        clientEntity.setSpouseName(client.getSpouseName());
+        clientRepository.save(clientEntity);
+
+        return CommonResponseDto.build(OK);
+    }
+
+    @Override
+    public CommonResponseDto deleteClient(Long clientId) {
+        log.info(String.format("Deleting client with id: %s", clientId.toString()));
+
+        if (assignmentRepository.findByClient_IdClient(clientId).isEmpty() || creditApplicationRepository.findByClientEntity_IdClient(clientId).isEmpty()) {
+            throw new ApplicationException(ResponseStatusCode.CLIENT_HAS_ASSOCIATED_INFORMATION);
+        }
+
+        ClientEntity clientEntity = clientRepository.findById(clientId)
+                .orElseThrow(() -> {
+                    log.error(String.format("Client to be deleted not found id: %s", clientId.toString()));
+                    return new ApplicationException(ResponseStatusCode.CLIENT_DOES_NOT_EXISTS);
+                });
+        clientRepository.delete(clientEntity);
+        return CommonResponseDto.build(OK);
     }
 }

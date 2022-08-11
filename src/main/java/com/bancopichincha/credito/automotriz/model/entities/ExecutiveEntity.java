@@ -26,7 +26,7 @@ public class ExecutiveEntity {
     @Column(name = "id_executive", nullable = false)
     Long idExecutive;
 
-    @Column(name = "identification", nullable = false)
+    @Column(name = "identification", nullable = false, unique = true)
     String identification;
 
     @Column(name = "names", nullable = false)

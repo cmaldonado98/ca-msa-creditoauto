@@ -38,13 +38,13 @@ public class AssignmentServiceImpl implements AssignmentService {
         ClientEntity clientEntity = clientRepository.findById(assignment.getClientId())
                 .orElseThrow(() -> {
                     log.error(String.format("Client not found by id: %s", assignment.getClientId()));
-                    return new ApplicationException(ResponseStatusCode.CLIENT_NOT_FOUND);
+                    return new ApplicationException(ResponseStatusCode.CLIENT_DOES_NOT_EXISTS);
                 });
 
         CarYardEntity carYardEntity = carYardRepository.findById(assignment.getCarYardId())
                 .orElseThrow(() -> {
                     log.error(String.format("Client not found by id: %s", assignment.getCarYardId()));
-                    return new ApplicationException(ResponseStatusCode.CAR_YARD_NOT_FOUND);
+                    return new ApplicationException(ResponseStatusCode.CAR_YARD_DOES_NOT_EXISTS);
                 });
 
         AssignmentEntity newAssignment = new AssignmentEntity();
