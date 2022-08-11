@@ -7,9 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.ws.rs.Produces;
 
 @RestController
@@ -21,14 +21,14 @@ public class ClientController {
 
     @PostMapping
     @Produces("application/json")
-    public ResponseEntity<CommonResponseDto> createClient(@Validated @RequestBody ClientDto client) {
+    public ResponseEntity<CommonResponseDto> createClient(@Valid @RequestBody ClientDto client) {
         client.setClientId(null);
         return ResponseEntity.status(HttpStatus.OK).body(clientService.createClient(client));
     }
 
     @PutMapping
     @Produces("application/json")
-    public ResponseEntity<CommonResponseDto> updateClient(@Validated @RequestBody ClientDto client) {
+    public ResponseEntity<CommonResponseDto> updateClient(@Valid @RequestBody ClientDto client) {
         return ResponseEntity.status(HttpStatus.OK).body(clientService.updateClient(client));
     }
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import javax.ws.rs.Produces;
 
 @RestController
@@ -22,7 +23,7 @@ public class AssignmentController {
 
     @PostMapping
     @Produces("application/json")
-    public ResponseEntity<CommonResponseDto> createAssignment(@RequestBody AssignmentDto assignment){
+    public ResponseEntity<CommonResponseDto> createAssignment(@Valid @RequestBody AssignmentDto assignment){
         assignment.setIdAssignment(null);
         return ResponseEntity.status(HttpStatus.OK).body(assignmentService.createAssignment(assignment));
     }

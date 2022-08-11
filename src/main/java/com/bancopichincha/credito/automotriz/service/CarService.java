@@ -6,4 +6,7 @@ import com.bancopichincha.credito.automotriz.model.dto.car.CarDto;
 public interface CarService {
 
     CommonResponseDto createCar(CarDto car);
+
+    CommonResponseDto updateCar(CarDto car);
+    CommonResponseDto deleteCar(Long id);
 }

@@ -12,6 +12,9 @@ public enum ResponseStatusCode {
     CLIENT_HAS_ASSOCIATED_INFORMATION("3", "Client has associated information assignment or credit application"),
     CAR_YARD_DOES_NOT_EXISTS("4", "Car yard not found"),
     CAR_YARD_HAS_ASSOCIATED_INFORMATION("5", "Car yard has associated information assignment, credit application or executive"),
+    BRAND_DOES_NOT_EXISTS("6", "Brand not found"),
+    CAR_DOES_NOT_EXISTS("7", "Car not found"),
+    CAR_HAS_ASSOCIATED_INFORMATION("8", "Car has associated information, credit application"),
     ;
 
     private final String code;

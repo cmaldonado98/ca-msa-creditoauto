@@ -27,7 +27,7 @@ public class CarEntity {
     @Column(name = "id_car", nullable = false)
     Long idCar;
 
-    @Column(name = "plate", nullable = false)
+    @Column(name = "plate", nullable = false, unique = true)
     String plate;
 
     @Column(name = "model", nullable = false)
