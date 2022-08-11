@@ -2,10 +2,8 @@ package com.bancopichincha.credito.automotriz.controller;
 
 import com.bancopichincha.credito.automotriz.model.dto.CommonResponseDto;
 import com.bancopichincha.credito.automotriz.model.dto.client.ClientDto;
-import com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode;
 import com.bancopichincha.credito.automotriz.service.ClientService;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,9 +25,9 @@ public class ClientController {
     public ResponseEntity<CommonResponseDto> createClient(@RequestBody ClientDto client) {
         client.setClientId(null);
 
-        if (Boolean.TRUE.equals(StringUtils.isBlank(client.getNames())) || StringUtils.isBlank(client.getIdentification())) {
-            return ResponseEntity.status(HttpStatus.OK).body(CommonResponseDto.build(ResponseStatusCode.INVALID_PARAMETERS));
-        }
+//        if (Boolean.TRUE.equals(StringUtils.isBlank(client.getNames())) || StringUtils.isBlank(client.getIdentification())) {
+//            return ResponseEntity.status(HttpStatus.OK).body(CommonResponseDto.build(ResponseStatusCode.INVALID_PARAMETERS));
+//        }
 
         return ResponseEntity.status(HttpStatus.OK).body(clientService.createClient(client));
 

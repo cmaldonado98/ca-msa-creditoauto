@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -16,8 +17,12 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 public class ClientDto {
+
+
     Long clientId;
+    @NotNull
     String identification;
+    @NotNull(message = "Error name cannot be null")
     String names;
     String surnames;
     Long age;

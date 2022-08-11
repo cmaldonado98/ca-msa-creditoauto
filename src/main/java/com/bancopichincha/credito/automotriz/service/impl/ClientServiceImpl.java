@@ -9,6 +9,7 @@ import com.bancopichincha.credito.automotriz.service.ClientService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.OK;
 
@@ -20,6 +21,7 @@ public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;
 
     @Override
+    @Transactional
     public CommonResponseDto createClient(ClientDto client) {
         log.info(String.format("Creating client with name: %s and identification: %s", client.getNames(), client.getIdentification()));
 

@@ -7,6 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -51,5 +52,8 @@ public class ClientEntity {
 
     @Column(name = "spouse_name", nullable = false)
     String spouseName;
+
+//    @OneToOne(mappedBy = "client")
+//    AssignmentEntity assignment;
 
 }

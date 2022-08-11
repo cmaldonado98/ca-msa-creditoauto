@@ -17,6 +17,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'javax.ws.rs:javax.ws.rs-api:2.0.1'
 	implementation 'org.apache.commons:commons-lang3:3.0'
+	implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.2'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
