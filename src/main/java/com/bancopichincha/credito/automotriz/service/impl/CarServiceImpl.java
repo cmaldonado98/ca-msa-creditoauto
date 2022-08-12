@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.OK;
+import static com.bancopichincha.credito.automotriz.util.Constant.CAR_RELEASED;
 
 @Service
 @Log4j2
@@ -45,6 +46,7 @@ public class CarServiceImpl implements CarService {
         newCar.setDisplacement(car.getDisplacement());
         newCar.setAppraisal(car.getAppraisal());
         newCar.setBrandEntity(brandEntity);
+        newCar.setStatus(CAR_RELEASED);
 
         newCar = carRepository.save(newCar);
 
@@ -77,6 +79,7 @@ public class CarServiceImpl implements CarService {
         carEntity.setDisplacement(car.getDisplacement());
         carEntity.setAppraisal(car.getAppraisal());
         carEntity.setBrandEntity(brandEntity);
+        carEntity.setStatus(car.getStatus());
 
         carRepository.save(carEntity);
 

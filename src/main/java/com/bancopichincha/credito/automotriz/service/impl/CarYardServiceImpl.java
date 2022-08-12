@@ -75,7 +75,7 @@ public class CarYardServiceImpl implements CarYardService {
     public CommonResponseDto deleteCarYard(Long id) {
         log.info(String.format("Deleting car yard with id: %s", id.toString()));
 
-        if (assignmentRepository.existsByCarYardEntity_IdCarYard(id) || executiveRepository.existsByCarYardEntity_IdCarYard(id) || creditApplicationRepository.findByCarYardEntity_IdCarYard(id).isPresent()) {
+        if (assignmentRepository.existsByCarYardEntity_IdCarYard(id) || executiveRepository.existsByCarYardEntity_IdCarYard(id) || creditApplicationRepository.existsByCarYardEntity_IdCarYard(id)) {
             throw new ApplicationException(ResponseStatusCode.CAR_YARD_HAS_ASSOCIATED_INFORMATION);
         }
 

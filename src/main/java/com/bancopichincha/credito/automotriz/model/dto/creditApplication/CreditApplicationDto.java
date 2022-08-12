@@ -42,4 +42,7 @@ public class CreditApplicationDto {
 
     @NotNull(message = "Error id executive cannot be null")
     Long idExecutive;
+
+    @NotNull(message = "Error id car yard cannot be null")
+    Long idCarYard;
 }

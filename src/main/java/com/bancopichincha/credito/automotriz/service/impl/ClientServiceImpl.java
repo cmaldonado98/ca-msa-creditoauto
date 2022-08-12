@@ -1,6 +1,5 @@
 package com.bancopichincha.credito.automotriz.service.impl;
 
-import ch.qos.logback.core.net.server.Client;
 import com.bancopichincha.credito.automotriz.exception.ApplicationException;
 import com.bancopichincha.credito.automotriz.model.dto.CommonResponseDto;
 import com.bancopichincha.credito.automotriz.model.dto.client.ClientDto;
@@ -78,7 +77,7 @@ public class ClientServiceImpl implements ClientService {
     public CommonResponseDto deleteClient(Long clientId) {
         log.info(String.format("Deleting client with id: %s", clientId.toString()));
 
-        if (assignmentRepository.findByClient_IdClient(clientId).isPresent() || creditApplicationRepository.findByClientEntity_IdClient(clientId).isPresent()) {
+        if (assignmentRepository.findByClient_IdClient(clientId).isPresent() || creditApplicationRepository.existsByClientEntity_IdClient(clientId)) {
             throw new ApplicationException(ResponseStatusCode.CLIENT_HAS_ASSOCIATED_INFORMATION);
         }
 

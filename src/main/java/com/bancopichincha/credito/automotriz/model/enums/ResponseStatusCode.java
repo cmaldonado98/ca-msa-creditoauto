@@ -16,6 +16,12 @@ public enum ResponseStatusCode {
     CAR_DOES_NOT_EXISTS("7", "Car not found"),
     CAR_HAS_ASSOCIATED_INFORMATION("8", "Car has associated information, credit application"),
     ASSIGNMENT_DOES_NOT_EXISTS("9", "Assignment not found"),
+    CREDIT_APPLICATION_EXIST_FOR_DATE("10","Error Credit application for client exists on this date"),
+    EXECUTIVE_DOES_NOT_EXISTS("11", "Executive not found"),
+    EXECUTIVE_DOES_NOT_WORK_IN_CAR_YARD("12", "Executive not works in car yard"),
+    CAR_IS_RESERVED("13", "Car is reserved"),
+    CREDIT_APPLICATION_DOES_NOT_EXISTS("14", "Credit application not found"),
+
     ;
 
     private final String code;
