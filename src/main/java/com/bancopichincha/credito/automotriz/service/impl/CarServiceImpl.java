@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+import java.util.List;
+
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.OK;
 import static com.bancopichincha.credito.automotriz.util.Constant.CAR_RELEASED;
 
@@ -27,6 +29,22 @@ public class CarServiceImpl implements CarService {
     private final CarRepository carRepository;
     private final BrandRepository brandRepository;
     private final CreditApplicationRepository creditApplicationRepository;
+
+    @Override
+    public List<CarEntity> getAllCars() {
+        log.info("Obtaining all cars");
+        return carRepository.findAll();
+    }
+
+    @Override
+    public CarEntity getCarById(Long id) {
+        log.info(String.format("Get car with id:%s", id));
+        return carRepository.findById(id)
+                .orElseThrow(() -> {
+                    log.error(String.format("Car not found id: %s", id));
+                    return new ApplicationException(ResponseStatusCode.CAR_DOES_NOT_EXISTS);
+                });
+    }
 
     @Override
     @Transactional
@@ -96,11 +114,9 @@ public class CarServiceImpl implements CarService {
 
         CarEntity carEntity = carRepository.findById(id)
                 .orElseThrow(() -> {
-                    log.error(String.format("Car to be updated not found id: %s", id));
+                    log.error(String.format("Car to be deleted not found id: %s", id));
                     return new ApplicationException(ResponseStatusCode.CAR_DOES_NOT_EXISTS);
                 });
-
-
         carRepository.delete(carEntity);
         return CommonResponseDto.build(OK);
     }

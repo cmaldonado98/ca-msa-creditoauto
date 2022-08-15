@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+import java.util.List;
 
 @RestController
 @RequestMapping("/client")
@@ -18,6 +20,18 @@ import javax.ws.rs.Produces;
 public class ClientController {
 
     private final ClientService clientService;
+
+    @GetMapping("/all")
+    @Produces("application/json")
+    public ResponseEntity<List<ClientDto>> getAllClients(){
+        return ResponseEntity.status(HttpStatus.OK).body(clientService.getAllClients());
+    }
+
+    @GetMapping("/{id}")
+    @Produces("application/json")
+    public ResponseEntity<ClientDto> getClientById(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(clientService.getClientById(id));
+    }
 
     @PostMapping
     @Produces("application/json")

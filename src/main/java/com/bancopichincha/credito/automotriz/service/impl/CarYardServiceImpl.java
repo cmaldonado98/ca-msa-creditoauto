@@ -40,6 +40,22 @@ public class CarYardServiceImpl implements CarYardService {
     private final CreditApplicationRepository creditApplicationRepository;
 
     @Override
+    public List<CarYardEntity> getAllCarYards() {
+        log.info("Obtaining all car yards");
+        return carYardRepository.findAll();
+    }
+
+    @Override
+    public CarYardEntity getCarYardById(Long id) {
+        log.info(String.format("Get car yard with id:%s", id));
+        return carYardRepository.findById(id)
+                .orElseThrow(() -> {
+                    log.error(String.format("Car Yard not found id: %s", id));
+                    return new ApplicationException(ResponseStatusCode.CAR_YARD_DOES_NOT_EXISTS);
+                });
+    }
+
+    @Override
     @Transactional
     public CommonResponseDto createCarYard(CarYardDto carYard) {
         log.info(String.format("Creating car yard with name: %s", carYard.getName()));

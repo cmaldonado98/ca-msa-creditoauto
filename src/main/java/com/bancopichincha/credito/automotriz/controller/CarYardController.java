@@ -2,6 +2,7 @@ package com.bancopichincha.credito.automotriz.controller;
 
 import com.bancopichincha.credito.automotriz.model.dto.CommonResponseDto;
 import com.bancopichincha.credito.automotriz.model.dto.carYard.CarYardDto;
+import com.bancopichincha.credito.automotriz.model.entities.CarYardEntity;
 import com.bancopichincha.credito.automotriz.service.CarYardService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.ws.rs.Produces;
+import java.util.List;
 
 @RestController
 @RequestMapping("/car-yard")
@@ -18,6 +20,18 @@ import javax.ws.rs.Produces;
 public class CarYardController {
 
     private final CarYardService carYardService;
+
+    @GetMapping("/all")
+    @Produces("application/json")
+    public ResponseEntity<List<CarYardEntity>> getAllCarYards(){
+        return ResponseEntity.status(HttpStatus.OK).body(carYardService.getAllCarYards());
+    }
+
+    @GetMapping("/{id}")
+    @Produces("application/json")
+    public ResponseEntity<CarYardEntity> getCarYardById(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(carYardService.getCarYardById(id));
+    }
 
     @PostMapping
     @Produces("application/json")

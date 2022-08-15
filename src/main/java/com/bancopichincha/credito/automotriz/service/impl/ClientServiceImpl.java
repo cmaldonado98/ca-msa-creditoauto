@@ -1,6 +1,7 @@
 package com.bancopichincha.credito.automotriz.service.impl;
 
 import com.bancopichincha.credito.automotriz.exception.ApplicationException;
+import com.bancopichincha.credito.automotriz.mapper.GeneralMapper;
 import com.bancopichincha.credito.automotriz.model.dto.CommonResponseDto;
 import com.bancopichincha.credito.automotriz.model.dto.client.ClientDto;
 import com.bancopichincha.credito.automotriz.model.entities.ClientEntity;
@@ -20,6 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.OK;
 import static com.bancopichincha.credito.automotriz.util.Util.getDateTime;
@@ -32,6 +34,25 @@ public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;
     private final AssignmentRepository assignmentRepository;
     private final CreditApplicationRepository creditApplicationRepository;
+    private final GeneralMapper mapper;
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ClientDto> getAllClients(){
+        log.info("Obtaining all clients");
+        return clientRepository.findAll().stream().map(mapper::mapClient).collect(Collectors.toList());
+    }
+
+    @Override
+    public ClientDto getClientById(Long id) {
+        log.info(String.format("Finding client with id: %s", id.toString()));
+        ClientEntity clientEntity = clientRepository.findById(id)
+                .orElseThrow(() -> {
+                    log.error(String.format("Client to be updated not found id: %s", id));
+                    return new ApplicationException(ResponseStatusCode.CLIENT_DOES_NOT_EXISTS);
+                });
+        return mapper.mapClient(clientEntity);
+    }
 
     @Override
     @Transactional
