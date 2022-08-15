@@ -1,24 +1,26 @@
 package com.bancopichincha.credito.automotriz.component;
 
-import com.bancopichincha.credito.automotriz.service.InitDataService;
+import com.bancopichincha.credito.automotriz.service.BrandService;
+import com.bancopichincha.credito.automotriz.service.ClientService;
+import com.bancopichincha.credito.automotriz.service.ExecutiveService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@AllArgsConstructor
 public class UploadDataComponent {
 
-    @Qualifier("client_service")
-    @Autowired
-    InitDataService clientService;
+    private final ClientService clientService;
 
-    @Qualifier("executive_service")
-    @Autowired
-    InitDataService executiveService;
+    private final BrandService brandService;
 
-    @Qualifier("brand_service")
-    @Autowired
-    InitDataService brandService;
+    private final ExecutiveService executiveService;
+
+
+
+
 
 
 }
