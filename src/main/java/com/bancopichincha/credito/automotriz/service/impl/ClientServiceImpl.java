@@ -89,4 +89,9 @@ public class ClientServiceImpl implements ClientService {
         clientRepository.delete(clientEntity);
         return CommonResponseDto.build(OK);
     }
+
+    @Override
+    public void initData() {
+
+    }
 }

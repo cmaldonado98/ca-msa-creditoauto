@@ -53,7 +53,4 @@ public class ClientEntity {
     @Column(name = "spouse_name", nullable = false)
     String spouseName;
 
-//    @OneToOne(mappedBy = "client")
-//    AssignmentEntity assignment;
-
 }

@@ -8,4 +8,5 @@ public interface ClientService {
     CommonResponseDto createClient(ClientDto client);
     CommonResponseDto updateClient(ClientDto client);
     CommonResponseDto deleteClient(Long clientId);
+    void initData();
 }
