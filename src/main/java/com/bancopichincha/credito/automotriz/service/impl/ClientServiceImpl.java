@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.OK;
 
-@Service
+@Service("client_service")
 @AllArgsConstructor
 @Log4j2
 public class ClientServiceImpl implements ClientService {
