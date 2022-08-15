@@ -4,6 +4,7 @@ import com.bancopichincha.credito.automotriz.exception.ApplicationException;
 import com.bancopichincha.credito.automotriz.model.dto.CommonResponseDto;
 import com.bancopichincha.credito.automotriz.model.dto.carYard.CarYardDto;
 import com.bancopichincha.credito.automotriz.model.entities.CarYardEntity;
+import com.bancopichincha.credito.automotriz.model.entities.ExecutiveEntity;
 import com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode;
 import com.bancopichincha.credito.automotriz.repository.AssignmentRepository;
 import com.bancopichincha.credito.automotriz.repository.CarYardRepository;
@@ -12,9 +13,16 @@ import com.bancopichincha.credito.automotriz.repository.ExecutiveRepository;
 import com.bancopichincha.credito.automotriz.service.CarYardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.OK;
 
@@ -86,6 +94,29 @@ public class CarYardServiceImpl implements CarYardService {
                 });
         carYardRepository.delete(carYardEntity);
         return CommonResponseDto.build(OK);
+
+    }
+
+    @Override
+    public void initData() throws IOException {
+        log.info("UPLOAD CAR YARDS DATA");
+        if (carYardRepository.findAll().isEmpty()) {
+
+            List<CarYardEntity> carYardEntities = new ArrayList<>();
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(new ClassPathResource("files/car_yards.csv").getFile()));
+            bufferedReader.readLine();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] values = line.split(",");
+                CarYardEntity carYardEntity = new CarYardEntity();
+                carYardEntity.setAddress(values[0]);
+                carYardEntity.setName(values[1]);
+                carYardEntity.setNumberSalesPoint(Long.valueOf(values[2]));
+                carYardEntity.setPhone(values[3]);
+                carYardEntities.add(carYardEntity);
+            }
+            carYardRepository.saveAll(carYardEntities);
+        }
 
     }
 }

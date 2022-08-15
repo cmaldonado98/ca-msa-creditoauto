@@ -11,10 +11,18 @@ import com.bancopichincha.credito.automotriz.repository.CreditApplicationReposit
 import com.bancopichincha.credito.automotriz.service.ClientService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.bancopichincha.credito.automotriz.model.enums.ResponseStatusCode.OK;
+import static com.bancopichincha.credito.automotriz.util.Util.getDateTime;
 
 @Service
 @AllArgsConstructor
@@ -91,7 +99,29 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void initData() {
+    public void initData() throws IOException {
+        log.info("LOAD CLIENT DATA FROM CSV");
+        if (clientRepository.findAll().isEmpty()) {
 
+            List<ClientEntity> clientEntities = new ArrayList<>();
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(new ClassPathResource("files/clients.csv").getFile()));
+            bufferedReader.readLine();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] values = line.split(",");
+                ClientEntity clientEntity = new ClientEntity();
+                clientEntity.setIdentification(values[0]);
+                clientEntity.setNames(values[1]);
+                clientEntity.setSurnames(values[2]);
+                clientEntity.setAge(Long.valueOf(values[3]));
+                clientEntity.setDateOfBirth(getDateTime(values[4]));
+                clientEntity.setAddress(values[5]);
+                clientEntity.setMaritalStatus(values[6]);
+                clientEntity.setSpouseIdentification(values[7]);
+                clientEntity.setSpouseName(values[8]);
+                clientEntities.add(clientEntity);
+            }
+            clientRepository.saveAll(clientEntities);
+        }
     }
 }

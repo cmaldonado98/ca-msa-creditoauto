@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,7 +56,16 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
                         .build());
     }
 
-
+    @ExceptionHandler(IOException.class)
+    public ResponseEntity<Object> handleIOException(IOException exception) {
+        log.error(String.format("Unexpected error: %s", exception.getMessage()));
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .header(HttpHeaders.CONTENT_TYPE, "application/json")
+                .body(CommonResponseDto.builder()
+                        .code(UNDEFINED_ERROR.getCode())
+                        .message(String.format(UNDEFINED_ERROR.getMessage(), exception.getMessage()))
+                        .build());
+    }
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
