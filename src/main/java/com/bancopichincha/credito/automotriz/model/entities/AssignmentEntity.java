@@ -29,11 +29,11 @@ public class AssignmentEntity {
 
     LocalDateTime dateAssignment;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_client", referencedColumnName = "id_client", nullable = false, unique = true)
     ClientEntity client;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(cascade = CascadeType.PERSIST, optional = false)
     @JoinColumn(name = "id_car_yard", nullable = false)
     CarYardEntity carYardEntity;
 

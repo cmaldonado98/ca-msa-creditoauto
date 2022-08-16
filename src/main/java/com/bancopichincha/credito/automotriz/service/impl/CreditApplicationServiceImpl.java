@@ -38,7 +38,6 @@ public class CreditApplicationServiceImpl implements CreditApplicationService {
     private final ExecutiveRepository executiveRepository;
     private final AssignmentService assignmentService;
     private final AssignmentRepository assignmentRepository;
-    private final CarService carService;
 
     @Override
     @Transactional
@@ -99,6 +98,9 @@ public class CreditApplicationServiceImpl implements CreditApplicationService {
         newCreditApplication.setExecutiveEntity(executiveEntity);
 
         newCreditApplication = creditApplicationRepository.save(newCreditApplication);
+
+        carEntity.setStatus(CAR_RESERVED);
+        carRepository.save(carEntity);
 
         assignmentService.createAssignment(AssignmentDto.builder()
                 .carYardId(creditApplication.getIdCarYard())

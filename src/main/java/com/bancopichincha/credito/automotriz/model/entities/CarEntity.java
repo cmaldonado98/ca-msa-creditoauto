@@ -48,7 +48,7 @@ public class CarEntity {
     @Column(name = "status", nullable = false)
     String status;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(cascade = CascadeType.PERSIST, optional = false)
     @JoinColumn(name = "id_brand", nullable = false)
     BrandEntity brandEntity;
 
