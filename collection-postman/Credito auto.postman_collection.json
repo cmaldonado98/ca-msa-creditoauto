@@ -1,0 +1,1820 @@
+{
+	"info": {
+		"_postman_id": "e49e1bc5-0143-42de-b849-f93df23623dc",
+		"name": "Credito auto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20191587"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Create client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identification\":\"12545617890\",\n    \"names\":\"Diego Fernando\",\n    \"surnames\":\"Ramirez Escobar\",\n    \"age\": 23,\n    \"dateOfBirth\":\"2022-09-30T00:00:00\",\n    \"address\":\"Quito\",\n    \"maritalStatus\":\"Casado\",\n    \"spouseIdentification\":\"2345678901\",\n    \"spouseName\":\"Abigail Bracero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create client",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identification\":\"12545617890\",\n    \"names\":\"Diego Fernando\",\n    \"surnames\":\"Ramirez Escobar\",\n    \"age\": 23,\n    \"dateOfBirth\":\"2022-09-30T00:00:00\",\n    \"address\":\"Quito\",\n    \"maritalStatus\":\"Casado\",\n    \"spouseIdentification\":\"2345678901\",\n    \"spouseName\":\"Abigail Bracero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/client",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"client"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:07:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": \"ID: 5 Name: Diego Fernando\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all clients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identification\":\"12545617890\",\n    \"names\":\"Diego Fernando\",\n    \"surnames\":\"Ramirez Escobar\",\n    \"age\": 23,\n    \"dateOfBirth\":\"2022-09-30T00:00:00\",\n    \"address\":\"Quito\",\n    \"maritalStatus\":\"Casado\",\n    \"spouseIdentification\":\"2345678901\",\n    \"spouseName\":\"Abigail Bracero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all clients",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identification\":\"12545617890\",\n    \"names\":\"Diego Fernando\",\n    \"surnames\":\"Ramirez Escobar\",\n    \"age\": 23,\n    \"dateOfBirth\":\"2022-09-30T00:00:00\",\n    \"address\":\"Quito\",\n    \"maritalStatus\":\"Casado\",\n    \"spouseIdentification\":\"2345678901\",\n    \"spouseName\":\"Abigail Bracero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/client/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"client",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:12:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"clientId\": 1,\n        \"identification\": \"1726037721\",\n        \"names\": \"Josue Fernando\",\n        \"surnames\": \"Valverde Juarez\",\n        \"age\": 23,\n        \"dateOfBirth\": \"1998-09-30T00:00:00\",\n        \"address\": \"Quito\",\n        \"maritalStatus\": \"Casado\",\n        \"spouseIdentification\": \"1234567890\",\n        \"spouseName\": \"Romina Sanchez\"\n    },\n    {\n        \"clientId\": 2,\n        \"identification\": \"1726037744\",\n        \"names\": \"Federico Ivan\",\n        \"surnames\": \"Pico Jimenez\",\n        \"age\": 34,\n        \"dateOfBirth\": \"1988-08-30T00:00:01\",\n        \"address\": \"Loja\",\n        \"maritalStatus\": \"Casado\",\n        \"spouseIdentification\": \"1234567891\",\n        \"spouseName\": \"Samantha Perez\"\n    },\n    {\n        \"clientId\": 3,\n        \"identification\": \"1726037755\",\n        \"names\": \"Camilo Enrique\",\n        \"surnames\": \"Mendez Mantilla\",\n        \"age\": 25,\n        \"dateOfBirth\": \"1998-09-24T00:00:00\",\n        \"address\": \"Cuenca\",\n        \"maritalStatus\": \"Casado\",\n        \"spouseIdentification\": \"0323201623\",\n        \"spouseName\": \"Maria Salazar\"\n    },\n    {\n        \"clientId\": 4,\n        \"identification\": \"1726037733\",\n        \"names\": \"Juan Fernando\",\n        \"surnames\": \"Velasco Ramirez\",\n        \"age\": 26,\n        \"dateOfBirth\": \"1997-09-29T00:00:00\",\n        \"address\": \"Guayaquil\",\n        \"maritalStatus\": \"Casado\",\n        \"spouseIdentification\": \"0321234567\",\n        \"spouseName\": \"Francisca Rojas\"\n    },\n    {\n        \"clientId\": 5,\n        \"identification\": \"12545617890\",\n        \"names\": \"Diego Fernando\",\n        \"surnames\": \"Ramirez Escobar\",\n        \"age\": 23,\n        \"dateOfBirth\": \"2022-09-30T00:00:00\",\n        \"address\": \"Quito\",\n        \"maritalStatus\": \"Casado\",\n        \"spouseIdentification\": \"2345678901\",\n        \"spouseName\": \"Abigail Bracero\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get client by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identification\":\"12545617890\",\n    \"names\":\"Diego Fernando\",\n    \"surnames\":\"Ramirez Escobar\",\n    \"age\": 23,\n    \"dateOfBirth\":\"2022-09-30T00:00:00\",\n    \"address\":\"Quito\",\n    \"maritalStatus\":\"Casado\",\n    \"spouseIdentification\":\"2345678901\",\n    \"spouseName\":\"Abigail Bracero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get client by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identification\":\"12545617890\",\n    \"names\":\"Diego Fernando\",\n    \"surnames\":\"Ramirez Escobar\",\n    \"age\": 23,\n    \"dateOfBirth\":\"2022-09-30T00:00:00\",\n    \"address\":\"Quito\",\n    \"maritalStatus\":\"Casado\",\n    \"spouseIdentification\":\"2345678901\",\n    \"spouseName\":\"Abigail Bracero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/client/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"client",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:12:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"clientId\": 1,\n    \"identification\": \"1726037721\",\n    \"names\": \"Josue Fernando\",\n    \"surnames\": \"Valverde Juarez\",\n    \"age\": 23,\n    \"dateOfBirth\": \"1998-09-30T00:00:00\",\n    \"address\": \"Quito\",\n    \"maritalStatus\": \"Casado\",\n    \"spouseIdentification\": \"1234567890\",\n    \"spouseName\": \"Romina Sanchez\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/client/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete client",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/client/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"client",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:15:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": null\n}"
+						},
+						{
+							"name": "Validation data delete client",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/client/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"client",
+										"4"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:16:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"3\",\n    \"message\": \"Client has associated information assignment or credit application\",\n    \"response\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit client",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\":5,\n    \"identification\":\"12545617890\",\n    \"names\":\"Diego Fernando Editado\",\n    \"surnames\":\"Ramirez Escobar\",\n    \"age\": 23,\n    \"dateOfBirth\":\"2022-09-30T00:00:00\",\n    \"address\":\"Quito\",\n    \"maritalStatus\":\"Casado\",\n    \"spouseIdentification\":\"2345678901\",\n    \"spouseName\":\"Abigail Bracero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit client",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"clientId\":5,\n    \"identification\":\"12545617890\",\n    \"names\":\"Diego Fernando Editado\",\n    \"surnames\":\"Ramirez Escobar\",\n    \"age\": 23,\n    \"dateOfBirth\":\"2022-09-30T00:00:00\",\n    \"address\":\"Quito\",\n    \"maritalStatus\":\"Casado\",\n    \"spouseIdentification\":\"2345678901\",\n    \"spouseName\":\"Abigail Bracero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/client",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"client"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:14:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Car yard",
+			"item": [
+				{
+					"name": "Create car yard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Patio tuerca\",\n    \"address\":\"Quito\",\n    \"phone\":\"233345678\",\n    \"numberSalesPoint\":\"0987787\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/car-yard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car-yard"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create car yard",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Patio tuerca\",\n    \"address\":\"Quito\",\n    \"phone\":\"233345678\",\n    \"numberSalesPoint\":\"0987787\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/car-yard",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car-yard"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:18:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": \"ID: 4\"\n}"
+						},
+						{
+							"name": "Validation data car yard",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Patio tuerca\",\n    \"phone\":\"233345678\",\n    \"numberSalesPoint\":\"0987787\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/car-yard",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car-yard"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:19:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"1\",\n    \"message\": \"Some or all the parameter are null or empty {address=Error address cannot be null}\",\n    \"response\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all car yards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car-yard/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car-yard",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all car yards",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/car-yard/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car-yard",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:21:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"idCarYard\": 1,\n        \"name\": \"Patio tuerquitas\",\n        \"address\": \"Quito Norte\",\n        \"phone\": \"0987276244\",\n        \"numberSalesPoint\": 9876\n    },\n    {\n        \"idCarYard\": 2,\n        \"name\": \"Patio tuerca\",\n        \"address\": \"Quito Sur\",\n        \"phone\": \"0987276243\",\n        \"numberSalesPoint\": 9875\n    },\n    {\n        \"idCarYard\": 3,\n        \"name\": \"Patio tuerquin\",\n        \"address\": \"Quito Centro\",\n        \"phone\": \"0987276245\",\n        \"numberSalesPoint\": 9877\n    },\n    {\n        \"idCarYard\": 4,\n        \"name\": \"Patio tuerca\",\n        \"address\": \"Quito\",\n        \"phone\": \"233345678\",\n        \"numberSalesPoint\": 987787\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get car yard by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car-yard/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car-yard",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get car yard by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/car-yard/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car-yard",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:22:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"idCarYard\": 1,\n    \"name\": \"Patio tuerquitas\",\n    \"address\": \"Quito Norte\",\n    \"phone\": \"0987276244\",\n    \"numberSalesPoint\": 9876\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit car yard",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idCarYard\":1,\n    \"name\":\"Patio tuerquitas EDITADO\",\n    \"address\":\"Quito\",\n    \"phone\":\"233345678\",\n    \"numberSalesPoint\":\"0987787\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/car-yard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car-yard"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit car yard",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idCarYard\":1,\n    \"name\":\"Patio tuerquitas EDITADO\",\n    \"address\":\"Quito\",\n    \"phone\":\"233345678\",\n    \"numberSalesPoint\":\"0987787\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/car-yard",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car-yard"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:25:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete car yard",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car-yard/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car-yard",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Validation data associated car yard",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/car-yard/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car-yard",
+										"1"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:26:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"5\",\n    \"message\": \"Car yard has associated information assignment, credit application or executive\",\n    \"response\": null\n}"
+						},
+						{
+							"name": "Delete car yard",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/car-yard/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car-yard",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 21:27:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Assignment",
+			"item": [
+				{
+					"name": "Create assignment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\":1,\n    \"carYardId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/assignment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create assignment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"clientId\":1,\n    \"carYardId\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/assignment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"assignment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:13:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": \"ID: 1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit assignment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idAssignment\":1,\n    \"clientId\":1,\n    \"carYardId\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/assignment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit assignment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idAssignment\":1,\n    \"clientId\":1,\n    \"carYardId\":2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/assignment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"assignment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:18:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete assignment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/assignment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignment",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete assignment",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/assignment/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"assignment",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:31:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Car",
+			"item": [
+				{
+					"name": "Create car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"plate\":\"PDJ-9999\",\n    \"model\":\"Creta\",\n    \"chassisNumber\":\"1234567890\",\n    \"type\":\"SUV\",\n    \"displacement\":22.0,\n    \"appraisal\":23000.0,\n    \"status\":\"Free\",\n    \"idBrand\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create car",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"plate\":\"PDJ-9999\",\n    \"model\":\"Creta\",\n    \"chassisNumber\":\"1234567890\",\n    \"type\":\"SUV\",\n    \"displacement\":22.0,\n    \"appraisal\":23000.0,\n    \"status\":\"Free\",\n    \"idBrand\":3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/car",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:36:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": \"ID: 1 Model: Creta\"\n}"
+						},
+						{
+							"name": "Validation duplicate car",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"plate\":\"PDJ-9999\",\n    \"model\":\"Creta\",\n    \"chassisNumber\":\"1234567890\",\n    \"type\":\"SUV\",\n    \"displacement\":22.0,\n    \"appraisal\":23000.0,\n    \"status\":\"Free\",\n    \"idBrand\":3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/car",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:39:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"500\",\n    \"message\": \"Unexpected error: could not execute statement; SQL [n/a]; constraint [\\\"PUBLIC.UK_PVP69N7ACJYR5RACOKD4PDR4T_INDEX_1 ON PUBLIC.CAR(PLATE) VALUES 1\\\"; SQL statement:\\ninsert into car (appraisal, id_brand, chassis_number, displacement, model, plate, status, type, id_car) values (?, ?, ?, ?, ?, ?, ?, ?, ?) [23505-200]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement\",\n    \"response\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all cars",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/car/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:40:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"idCar\": 1,\n        \"plate\": \"PDJ-9999\",\n        \"model\": \"Creta\",\n        \"chassisNumber\": \"1234567890\",\n        \"type\": \"SUV\",\n        \"displacement\": 22,\n        \"appraisal\": 23000,\n        \"status\": \"RELEASED\",\n        \"brandEntity\": {\n            \"idBrand\": 3,\n            \"name\": \"Hyundai\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get car by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get car by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/car/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:41:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"idCar\": 1,\n    \"plate\": \"PDJ-9999\",\n    \"model\": \"Creta\",\n    \"chassisNumber\": \"1234567890\",\n    \"type\": \"SUV\",\n    \"displacement\": 22,\n    \"appraisal\": 23000,\n    \"status\": \"RELEASED\",\n    \"brandEntity\": {\n        \"idBrand\": 3,\n        \"name\": \"Hyundai\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit car",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idCar\":1,\n    \"plate\":\"PDJ-8888\",\n    \"model\":\"Creta\",\n    \"chassisNumber\":\"1234567890\",\n    \"type\":\"SUV\",\n    \"displacement\":22.0,\n    \"appraisal\":23000.0,\n    \"status\":\"Free\",\n    \"idBrand\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit car",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idCar\":1,\n    \"plate\":\"PDJ-8888\",\n    \"model\":\"Creta\",\n    \"chassisNumber\":\"1234567890\",\n    \"type\":\"SUV\",\n    \"displacement\":22.0,\n    \"appraisal\":23000.0,\n    \"status\":\"Free\",\n    \"idBrand\":3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/car",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:43:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete car",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete car",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/car/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:46:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": null\n}"
+						},
+						{
+							"name": "Validation data car",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/car/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"car",
+										"2"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:52:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"8\",\n    \"message\": \"Car has associated information, credit application\",\n    \"response\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Credit application",
+			"item": [
+				{
+					"name": "Create credit application",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"monthsTerm\":12,\n    \"fees\":123.45,\n    \"entranceFee\":1000.00,\n    \"observation\":\"Carro full\",\n    \"status\":\"Registration\",\n    \"idClient\":1,\n    \"idCar\":2,\n    \"idExecutive\":1,\n    \"idCarYard\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/credit-application",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credit-application"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create credit application",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"monthsTerm\":12,\n    \"fees\":123.45,\n    \"entranceFee\":1000.00,\n    \"observation\":\"Carro full\",\n    \"status\":\"Registration\",\n    \"idClient\":1,\n    \"idCar\":2,\n    \"idExecutive\":1,\n    \"idCarYard\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/credit-application",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"credit-application"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:52:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"0\",\n    \"message\": \"success\",\n    \"response\": \"ID: 1\"\n}"
+						},
+						{
+							"name": "Valid date create credit application",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"monthsTerm\":12,\n    \"fees\":123.45,\n    \"entranceFee\":1000.00,\n    \"observation\":\"Carro full\",\n    \"status\":\"Registration\",\n    \"idClient\":1,\n    \"idCar\":2,\n    \"idExecutive\":1,\n    \"idCarYard\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/credit-application",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"credit-application"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:54:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"10\",\n    \"message\": \"Error Credit application for client exists on this date\",\n    \"response\": null\n}"
+						},
+						{
+							"name": "Validate car reserved",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"monthsTerm\":12,\n    \"fees\":123.45,\n    \"entranceFee\":1000.00,\n    \"observation\":\"Carro full\",\n    \"status\":\"Registration\",\n    \"idClient\":2,\n    \"idCar\":1,\n    \"idExecutive\":1,\n    \"idCarYard\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/credit-application",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"credit-application"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 23:59:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"13\",\n    \"message\": \"Car is reserved\",\n    \"response\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
